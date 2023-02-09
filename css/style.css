@@ -1,0 +1,137 @@
+:root {
+    --blue-100:hsl(206, 94%, 87%);
+    --blue-200:hsl(228, 100%, 84%);
+    --blue-500:hsl(243, 100%, 62%);
+    --blue-900:hsl(213, 96%, 18%);
+    --red-400:hsl(354, 84%, 57%);
+
+    --gray-200:hsl(229, 24%, 87%);
+    --gray-400:hsl(231, 11%, 63%);
+    
+    --white:hsl(0, 0%, 100%);
+    --alabaster:hsl(231, 100%, 99%);
+    --magnolia:hsl(217, 100%, 97%);
+
+
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+button {
+    font-family: 'Ubuntu', sans-serif;
+}
+fieldset {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+.second-step, .third-step, .fourth-step {
+    display: none;
+}
+label {
+    color: var(--blue-900);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding-bottom: 0.3rem;
+}
+input {
+    border: 1px solid var(--gray-200);
+    border-radius: 5px;
+    opacity: 0.9;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+}
+input::placeholder {
+    font-size: 1rem;
+    color: var(--gray-400);
+    font-weight: 500;
+    font-family: 'Ubuntu', sans-serif;
+}
+.header {
+    background-image: url('../images/bg-sidebar-mobile.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+    gap:1rem;
+    min-height: 170px;
+}
+.step-number {
+    border: 1px solid var(--white);
+    border-radius: 50%;
+    color: var(--white);
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    padding-bottom: 0.1rem;
+}
+.selected {
+    background-color: var(--blue-100);
+    border: 1px solid var(--blue-100);
+    color: var(--blue-900);
+}
+.step-description {
+    display: none;
+}
+.main {
+    background-color: var(--magnolia);
+}
+.plan-section, .addons, .summary, .thank-you, .confirm-btn {
+    display: none;
+}
+.footer {
+    background-color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+.go-back-btn {
+    background-color: transparent;
+    border: none;
+    color: var(--gray-400);
+    visibility: hidden;
+}
+.next-step-btn {
+    background-color: var(--blue-900);
+    border-radius: 5px;
+    color:var(--magnolia);
+    padding: 0.7rem;
+    border: none;
+    font-size: 0.950rem;
+}
+.personal-info-section {
+    transform: translateY(-105px);
+    width: 90%;
+    margin: 2rem auto;
+    margin-bottom: 0rem;
+    border-radius: 10px;
+    background-color: var(--white);
+    padding: 1.5rem 2rem;
+
+}
+.section-header {
+    padding-bottom: 1.5rem;
+}
+.section-header h1 {
+    font-size: 1.8rem;
+    color: var(--blue-900);
+    padding-bottom: 1rem;
+}
+.section-header p {
+    color: var(--gray-400);
+    line-height: 1.4;
+}
+.section-options {
+    display: grid;
+}
