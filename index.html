@@ -15,7 +15,7 @@
     <div class="container">
         <header class="header">
             <div class="form-step info">
-                <div class="step-number">1</div>
+                <div class="step-number selected">1</div>
                 <div class="step-description">
                     <h3>STEP 1</h3>
                     <p>YOUR INFO</p>
@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="form-step summary-step">
-                <div class="step-number selected">4</div>
+                <div class="step-number">4</div>
                 <div class="step-description">
                     <h3>STEP 4</h3>
                     <p>SUMMARY</p>
@@ -44,8 +44,8 @@
             </div>
         </header>
         <main class="main">
-            <form name="myForm" class="myForm" id="myForm" action="POST">
-                <fieldset class="first-step">
+            <form name="myForm" class="myForm" id="myForm" action="">
+                <fieldset class="fieldset first-step show">
                     <section class="step-section personal-info-section">
                         <div class="section-header">
                             <h1>Personal Info</h1>
@@ -64,7 +64,7 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="second-step">
+                <fieldset class="fieldset second-step">
                     <section class="step-section plan-section">
                         <div class="section-header">
                             <h1>Select your plan</h1>
@@ -125,7 +125,7 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="third-step">
+                <fieldset class="fieldset third-step">
                     <section class="step-section addons">
                         <div class="section-header">
                             <h1>Pick add-ons</h1>
@@ -162,7 +162,7 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="fourth-step">
+                <fieldset class="fieldset fourth-step">
                     <section class="step-section summary">
                         <div class="section-header">
                             <h1>Finishing up</h1>
@@ -199,11 +199,11 @@
                         </div>
                     </section>
                 </fieldset>
-                <footer class="footer">
-                    <button class="go-back-btn">Go Back</button>
-                    <button class="next-step-btn">Next Step</button>
+                <!-- <footer class="footer">
+                    <button class="go-back-btn" type="button">Go Back</button>
+                    <button class="next-step-btn" type="button">Next Step</button>
                     <button class="confirm-btn">Confirm</button>
-                </footer>
+                </footer> -->
             </form>
             <section class="thank-you">
                 <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
@@ -221,6 +221,12 @@
                 </p>
             </section>
         </main>
+        <footer class="footer">
+            <button class="go-back-btn" type="button">Go Back</button>
+            <button class="next-step-btn" type="button">Next Step</button>
+            <button class="confirm-btn">Confirm</button>
+        </footer>
     </div>
+    <script src="js/index.js"></script>
 </body>
 </html>

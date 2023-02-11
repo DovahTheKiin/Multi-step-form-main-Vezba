@@ -19,24 +19,31 @@
     margin: 0;
     padding: 0;
 }
+html {
+    height: 100%;
+}
 body {
     font-family: 'Ubuntu', sans-serif;
-}
-button {
-    font-family: 'Ubuntu', sans-serif;
+    height: 100%;
 }
 .container {
     min-height: 100%;
     display: grid;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto 1fr auto;
+}
+button {
+    font-family: 'Ubuntu', sans-serif;
 }
 fieldset {
     padding: 0;
     margin: 0;
     border: none;
 }
-.first-step, .second-step, .third-step, .thank-you, .confirm-btn {
+.thank-you, .confirm-btn {
     display: none;
+}
+.first-step, .second-step, .third-step, .fourth-step {
+    visibility: hidden;
 }
 label {
     color: var(--blue-900);
@@ -112,11 +119,26 @@ input::placeholder {
     border: none;
     font-size: 0.950rem;
 }
+form {
+    position: relative;
+    min-height: 440px;
+}
+fieldset {
+    position: absolute;
+    min-height: 440px;
+    width: 100%;
+    left:0;
+    right:0;
+    margin-inline: auto;
+}
 .step-section {
-    transform: translateY(-105px);
+    /* transform: translateY(-105px); */
+    position: relative;
+    top:-73px;
     width: 90%;
-    margin: 2rem auto;
-    margin-bottom: 0rem;
+    left:0;
+    right:0;
+    margin-inline: auto;
     border-radius: 10px;
     background-color: var(--white);
     padding: 1.5rem 1.5rem;
@@ -290,15 +312,22 @@ input[type="checkbox"]:checked::after {
     color: var(--blue-500);
     font-weight: 700;
 }
-.next-step-btn {
-    display: none;
-}
 .confirm-btn {
-    display: block;
     background-color: var(--blue-500);
     border-radius: 5px;
     color:var(--magnolia);
     padding: 0.7rem 1.1rem;
     border: none;
     font-size: 0.950rem;
+}
+/* JS CLASSES */
+
+.active {
+    display: block;
+}
+.hidden {
+    display: none;
+}
+.show {
+    visibility: visible;
 }
