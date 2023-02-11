@@ -25,12 +25,17 @@ body {
 button {
     font-family: 'Ubuntu', sans-serif;
 }
+.container {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
 fieldset {
     padding: 0;
     margin: 0;
     border: none;
 }
-.second-step, .third-step, .fourth-step {
+.first-step, .second-step, .third-step, .thank-you, .confirm-btn {
     display: none;
 }
 label {
@@ -39,7 +44,7 @@ label {
     font-weight: 500;
     padding-bottom: 0.3rem;
 }
-input {
+input[type="text"], input[type="email"] {
     border: 1px solid var(--gray-200);
     border-radius: 5px;
     opacity: 0.9;
@@ -86,9 +91,6 @@ input::placeholder {
 .main {
     background-color: var(--magnolia);
 }
-.plan-section, .addons, .summary, .thank-you, .confirm-btn {
-    display: none;
-}
 .footer {
     background-color: var(--white);
     display: flex;
@@ -110,14 +112,14 @@ input::placeholder {
     border: none;
     font-size: 0.950rem;
 }
-.personal-info-section {
+.step-section {
     transform: translateY(-105px);
     width: 90%;
     margin: 2rem auto;
     margin-bottom: 0rem;
     border-radius: 10px;
     background-color: var(--white);
-    padding: 1.5rem 2rem;
+    padding: 1.5rem 1.5rem;
 
 }
 .section-header {
@@ -134,4 +136,169 @@ input::placeholder {
 }
 .section-options {
     display: grid;
+}
+.billing-options {
+    display: grid;
+    gap: 1rem;
+}
+.option {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 1rem;
+}
+.selected-option {
+    border: 1px solid var(--blue-900);
+    background-color: var(--alabaster);
+}
+.option h4 {
+    color: var(--blue-900);
+    padding-bottom: 0.3rem;
+    font-weight: 500;
+    
+}
+.option-price {
+    color: var(--gray-400);
+    font-size: 0.9250rem;
+}
+.free-months {
+    display: none;
+}
+.billing-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    background-color: var(--alabaster);
+    padding: 1rem;
+    border-radius: 10px;
+}
+.monthly-toggle {
+    font-weight: 500;
+    color: var(--blue-900);
+}
+.toggle {
+    border-radius: 100vw;
+    background-color: var(--blue-900);
+    width: 40px;
+    height: 20px;
+    margin: 0rem 1.5rem;
+    padding: 0.25rem;
+}
+.toggle-ball {
+    aspect-ratio: 1/1;
+    background-color: var(--white);
+    height: 100%;
+    border-radius: 50%;
+}
+.yearly-toggle {
+    color: var(--gray-400);
+}
+.addons-options {
+    display: grid;
+    gap: 0.8rem;
+}
+.addon-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:1rem;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 1rem;
+}
+.selected-addon {
+    border: 1px solid var(--blue-500);
+    background-color: var(--alabaster);
+}
+.addon-info {
+    margin-right: auto;
+}
+.addon-info h4 {
+    font-size: 0.9rem;
+    color: var(--blue-900);
+    padding-bottom: 0.250rem;
+}
+.addon-info p {
+    color: var(--gray-400);
+    font-size: 0.7rem;
+    /* width: 170px; */
+}
+.addon-price {
+    font-size: 0.8rem;
+    color: var(--blue-500);
+    font-weight: 500;
+}
+input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    background-color: var(--white);
+    border: 1px solid var(--gray-200);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input[type="checkbox"]::after {
+    content: url('../images/icon-checkmark.svg');
+    display: none;
+}
+input[type="checkbox"]:checked {
+    background-color: var(--blue-500);
+}
+input[type="checkbox"]:checked::after {
+    display: block;
+}
+.selected-options {
+    padding: 1rem;
+    background-color: var(--alabaster);
+    border-radius: 10px;
+}
+.selected-ones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+}
+.selected-ones a {
+    display: none;
+}
+.addon-info {
+    display: grid;
+}
+.selected-price {
+    color: var(--blue-900);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.selected-option-name {
+    font-size: 0.9rem;
+    color: var(--gray-400);
+}
+.total-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem 1.5rem;
+    padding-top: 1.5rem;
+}
+.total-price-amount {
+    color: var(--blue-500);
+    font-weight: 700;
+}
+.next-step-btn {
+    display: none;
+}
+.confirm-btn {
+    display: block;
+    background-color: var(--blue-500);
+    border-radius: 5px;
+    color:var(--magnolia);
+    padding: 0.7rem 1.1rem;
+    border: none;
+    font-size: 0.950rem;
 }
