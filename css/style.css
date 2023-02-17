@@ -2,6 +2,7 @@
     --blue-100:hsl(206, 94%, 87%);
     --blue-200:hsl(228, 100%, 84%);
     --blue-500:hsl(243, 100%, 62%);
+    --blue-700:hsl(213, 96%, 28%);
     --blue-900:hsl(213, 96%, 18%);
     --red-400:hsl(354, 84%, 57%);
 
@@ -18,6 +19,24 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+*:focus {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+  -webkit-text-fill-color: var(--blue-900);
 }
 html {
     height: 100%;
@@ -57,6 +76,13 @@ input[type="text"], input[type="email"] {
     opacity: 0.9;
     padding: 0.8rem 1rem;
     margin-bottom: 1rem;
+    cursor: pointer;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    color: var(--blue-900);
+}
+input[type="text"]:hover, input[type="email"]:hover {
+    border: 1px solid var(--blue-900);
 }
 input::placeholder {
     font-size: 1rem;
@@ -97,6 +123,7 @@ input::placeholder {
 }
 .main {
     background-color: var(--magnolia);
+    position: relative;
 }
 .footer {
     background-color: var(--white);
@@ -104,12 +131,19 @@ input::placeholder {
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
+    position: relative;
+    z-index: 10;
 }
 .go-back-btn {
     background-color: transparent;
     border: none;
     color: var(--gray-400);
     visibility: hidden;
+    font-weight: 700;
+    cursor: pointer;
+}
+.go-back-btn:hover {
+    color: var(--blue-900);
 }
 .next-step-btn {
     background-color: var(--blue-900);
@@ -118,6 +152,10 @@ input::placeholder {
     padding: 0.7rem;
     border: none;
     font-size: 0.950rem;
+    cursor: pointer;
+}
+.next-step-btn:hover {
+    background-color: var(--blue-700);
 }
 form {
     position: relative;
@@ -125,7 +163,7 @@ form {
 }
 fieldset {
     position: absolute;
-    min-height: 440px;
+    min-height: 100%;
     width: 100%;
     left:0;
     right:0;
@@ -159,6 +197,26 @@ fieldset {
 .section-options {
     display: grid;
 }
+.labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.required {
+    display: none;
+    font-size: 0.8250rem;
+    color: var(--red-400);
+    font-weight: 700;
+}
+.select-plan {
+    display: none;
+    color: var(--red-400);
+    font-weight: 700;
+    font-size: 0.8250rem;
+    text-align: end;
+    padding-bottom: 1rem;
+    padding-right: 0.4rem;
+}
 .billing-options {
     display: grid;
     gap: 1rem;
@@ -170,6 +228,11 @@ fieldset {
     border: 1px solid var(--gray-200);
     border-radius: 10px;
     padding: 1rem;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+.option:hover {
+    border: 1px solid var(--blue-900);
 }
 .selected-option {
     border: 1px solid var(--blue-900);
@@ -185,8 +248,17 @@ fieldset {
     color: var(--gray-400);
     font-size: 0.9250rem;
 }
+.option-info {
+    position: relative;
+}
 .free-months {
     display: none;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    font-size: 0.8rem;
+    width: 100px;
+    color: var(--blue-900);
 }
 .billing-toggle {
     display: flex;
@@ -199,7 +271,7 @@ fieldset {
 }
 .monthly-toggle {
     font-weight: 500;
-    color: var(--blue-900);
+    color: var(--gray-400);
 }
 .toggle {
     border-radius: 100vw;
@@ -214,8 +286,12 @@ fieldset {
     background-color: var(--white);
     height: 100%;
     border-radius: 50%;
+    transition: 0.4s;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 .yearly-toggle {
+    font-weight: 500;
     color: var(--gray-400);
 }
 .addons-options {
@@ -230,6 +306,11 @@ fieldset {
     border: 1px solid var(--gray-200);
     border-radius: 10px;
     padding: 1rem;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+.addon-option:hover {
+    border: 1px solid var(--blue-500);
 }
 .selected-addon {
     border: 1px solid var(--blue-500);
@@ -277,8 +358,12 @@ input[type="checkbox"]:checked::after {
 }
 .selected-options {
     padding: 1rem;
+    padding-bottom: 0rem;
     background-color: var(--alabaster);
     border-radius: 10px;
+}
+.plan-info {
+    border-bottom: 1px solid var(--gray-200);
 }
 .selected-ones {
     display: flex;
@@ -286,16 +371,17 @@ input[type="checkbox"]:checked::after {
     align-items: center;
     padding: 0.5rem;
 }
-.selected-ones a {
-    display: none;
-}
 .addon-info {
     display: grid;
 }
 .selected-price {
     color: var(--blue-900);
-    font-size: 0.9rem;
+    font-size: 0.9250rem;
     font-weight: 500;
+}
+.addons-info .selected-ones {
+    padding-top: 1rem;
+    padding-bottom: 0rem;
 }
 .selected-option-name {
     font-size: 0.9rem;
@@ -319,15 +405,262 @@ input[type="checkbox"]:checked::after {
     padding: 0.7rem 1.1rem;
     border: none;
     font-size: 0.950rem;
+    cursor: pointer;
+}
+.confirm-btn:hover {
+    opacity: 0.7;
+}
+a {
+    text-decoration: 2px underline var(--gray-400);
+}
+.name-and-change {
+    position: relative;
+    /* overflow: hidden; */
+}
+.change-link {
+    display: none;
+    color: var(--gray-400);
+    font-size: 0.8250rem;
+    position: absolute;
+    left: 0;
+    bottom: -22px;
+}
+.change-link:hover {
+    color: var(--blue-900);
+    text-decoration: 2px underline var(--blue-900) !important;
+}
+.thank-you {
+    position: absolute;
+    top: -73px;
+    width: 90%;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    border-radius: 10px;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:1.5rem;
+    min-height: 440px;
+    display: none;
+}
+.thank-you h1 {
+    color: var(--blue-900);
+    padding-bottom: 1rem;
+}
+.thank-you p {
+    width: 300px;
+    color: var(--gray-400);
+    line-height: 1.7;
+    text-align: center;
+}
+.thank-you svg {
+    width: 60px;
+    padding-bottom: 1.5rem;
+}
+@media(min-width: 800px) {
+    body {
+        background-color: var(--magnolia);
+        height: 100vh;
+        width: 100%;
+        position: relative;
+    }
+    .container {
+        height: fit-content;
+        padding: 1rem;
+        border-radius: 15px;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: 1fr auto;
+        max-width: 945px;
+        min-height: 0px;
+        height: 707px;
+        background-color: var(--white);
+    }
+    .header {
+        border-radius: 15px;
+        grid-row: 1/3;
+        background-image: url('../images/bg-sidebar-desktop.svg');
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 2rem;
+        padding: 2rem;
+        padding-right: 7rem;
+        gap:2rem;
+    }
+    .step-description {
+        display: block;
+    }
+    .form-step {
+        display: flex;
+        gap: 1rem;
+    }
+    .step-header {
+        font-size: 0.750rem;
+        color: var(--blue-200);
+        font-weight: 100;
+        padding-bottom: 0.4rem;
+        opacity: 0.8;
+    }
+    .step-paragraph {
+        font-size: 0.850rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+        color: var(--white);
+    }
+    .main {
+        background-color: var(--white);
+        max-width: 622px;
+    }
+    /* fieldset {
+        margin: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    } */
+    fieldset {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .step-section {
+        width: 100%;
+        margin-inline: 0;
+        top: 0;
+        left: 0;
+        width: 90%;
+        padding: clamp(2rem, 10vw, 4rem) clamp(2rem, 4vw, 5rem);
+    }
+    .section-header h1 {
+        font-size: 2rem;
+        color: var(--blue-900);
+        padding-bottom: 1rem;
+    }
+    label {
+        font-size: 0.950rem;
+        font-weight: 400;
+        padding-bottom: 0.6rem;
+    }
+    input[type="text"], input[type="email"] {
+        border-radius: 8px;
+        padding: 1rem 1rem;
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+    }
+    input::placeholder {
+        font-size: 1.1rem;
+        color: var(--gray-400);
+        font-weight: 500;
+        font-family: 'Ubuntu', sans-serif;
+    }
+    .required {
+        font-size: 0.9rem;
+    }
+    .footer {
+        padding-inline:  clamp(2rem, 8vw, 5rem);
+    }
+    .next-step-btn {
+        border-radius: 8px;
+        padding: 1rem 1.350rem;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+    .go-back-btn {
+        font-size: 1rem;
+    }
 }
 /* JS CLASSES */
 
 .active {
     display: block;
 }
+.active-flex {
+    display: flex;
+}
 .hidden {
     display: none;
 }
 .show {
     visibility: visible;
+}
+.toggle-active {
+    transform: translateX(20px);
+}
+.toggle-text-color {
+    color: var(--blue-900);
+    transition: 0.4s;
+}
+.option-padding {
+    animation-name: paddingAnimation;
+    animation-duration: 0.4s;
+    animation-fill-mode: both;
+}
+.option-padding-end {
+    animation-name: paddingAnimationEnd;
+    animation-duration: 0.4s;
+    animation-fill-mode: both;
+}
+.change-link-show {
+    animation-name: freeMonthsShow;
+    animation-duration: 0.4s;
+    animation-fill-mode: both;
+}
+.free-months-show {
+    animation-name: freeMonthsShow;
+    animation-duration: 0.4s;
+    animation-fill-mode: both;
+}
+.finish-padding-start {
+    animation-name: finishPaddingAnimation;
+    animation-duration: 0.4s;
+    animation-fill-mode: both;
+}
+.finish-padding-end {
+    animation-name: finishPaddingAnimationEnd;
+    animation-duration: 0.4s;
+    animation-fill-mode: both;
+}
+.finish-text-color {
+    color: var(--blue-900);
+    font-weight: 700;
+    transition: 0.2s;
+}
+@keyframes paddingAnimation {
+    100% {
+        padding-bottom: 2rem;
+    }
+}
+@keyframes paddingAnimationEnd {
+    0% {
+        padding-bottom: 2rem;
+    }
+    100% {
+        padding-bottom: 1rem;
+    }
+}
+@keyframes freeMonthsShow {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes finishPaddingAnimation {
+    0% {
+        padding-bottom: 0.5rem;
+    }
+    100% {
+        padding-bottom: 2.1rem;
+    }
+}
+@keyframes finishPaddingAnimationEnd {
+    0% {
+        padding-bottom: 2.1rem;
+    }
+    100% {
+        padding-bottom: 0.5rem;
+    }
 }
