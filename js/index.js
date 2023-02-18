@@ -159,6 +159,7 @@ nextStepBtn.addEventListener('click', () => {
         console.log("Toggle Array: " + toggleArray);
     }
     if(counter === 2) {
+        pricePerMYSpan();
         for(let i=0;i<addonOption.length;i++){
             if(addonOption[i].classList.contains("selected-addon")) {
                 addonCounter = addonCounter + 1;
@@ -317,6 +318,8 @@ goBackBtn.addEventListener('click', () => {
 let monthlyPricesToggle = [9, 12, 15, 1, 2, 2];
 let clickToggle = 0;
 toggleBall.addEventListener('click', () => {
+    const pricePerMY = document.querySelectorAll(".price-per-my")
+
     clickToggle = clickToggle + 1;
     toggleBall.classList.toggle("toggle-active");
     monthlyToggle.classList.toggle("toggle-text-color");
@@ -331,12 +334,18 @@ toggleBall.addEventListener('click', () => {
             for(let j=0;j<monthPrice.length;j++) {
                 monthPrice[j].innerHTML = `${monthlyPricesToggle[j]}`;
             }
+            for(let i=0;i<pricePerMY.length;i++){
+                pricePerMY[i].innerHTML = "mo";
+            }
             clickToggle = 0;
         }
         if(clickToggle === 1) {
             for(let j=0;j<monthPrice.length;j++) {
                 let monthlyPricesToggled = monthlyPricesToggle[j]*10;
                 monthPrice[j].innerHTML = `${monthlyPricesToggled}`;
+            }
+            for(let i=0;i<pricePerMY.length;i++){
+                pricePerMY[i].innerHTML = "yr";
             }
         }
     }
@@ -403,6 +412,8 @@ addonInfo.addEventListener('click', () => {
 })
 function planInfoLinkClick() {
     planInfoLink.addEventListener('click', () => {
+        billingToggle.classList.remove("hidden")
+        billingToggle.classList.add("active-flex")
         selectedOptions.classList.add("hidden");
         addonInfo.classList.remove("finish-padding-start");
         addonInfo.classList.add("finish-padding-end");
@@ -433,9 +444,6 @@ function addonInfoLinkClick() {
         addonInfo.classList.add("finish-padding-end");
         backButtonCounter = 1;
         counter = 2;
-        toggleArray = [];
-        pricePerMYArray = [];
-        totalYMArray = [];
         fourthStep.classList.remove("show");
         thirdStep.classList.add("show");
         confirmBtn.classList.remove("active");
