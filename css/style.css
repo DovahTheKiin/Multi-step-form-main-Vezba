@@ -44,6 +44,10 @@ html {
 body {
     font-family: 'Ubuntu', sans-serif;
     height: 100%;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 .container {
     min-height: 100%;
@@ -361,6 +365,7 @@ input[type="checkbox"]:checked::after {
     padding-bottom: 0rem;
     background-color: var(--alabaster);
     border-radius: 10px;
+    cursor: pointer;
 }
 .plan-info {
     border-bottom: 1px solid var(--gray-200);
@@ -463,7 +468,7 @@ a {
 @media(min-width: 800px) {
     body {
         background-color: var(--magnolia);
-        height: 100dvh;
+        min-height: 100dvh;
         width: 100%;
         position: relative;
     }
@@ -572,7 +577,7 @@ a {
     }
     .option {
         display: grid;
-        gap: 3rem;
+        gap: 3.5rem;
         padding: 1rem;
     }
     .option h4 {
@@ -621,6 +626,19 @@ a {
     }
     .thank-you p {
         width: 440px;
+    }
+}
+@media(min-width:995px) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        min-height: 100dvh;
+    }
+    .container {
+        width: 995px;
+        height: 662px;
     }
 }
 /* JS CLASSES */
